@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PokemonContainer from "./components/PokemonContainer/PokemonContainer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Details from "./components/Details/Details";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,7 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<PokemonContainer />}></Route>
-          {/*<Route path="/pokemon/:id" element={}></Route>*/}
+          <Route path="/pokemon/:id" element={<Details />}></Route>
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

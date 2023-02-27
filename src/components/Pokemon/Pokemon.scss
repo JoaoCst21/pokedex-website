@@ -19,7 +19,8 @@ $colors: (
         dark: #705848,
         dragon: #7038f8,
         steel: #b8b8d0,
-        fairy: #ee99ac
+        fairy: #ee99ac,
+        ice: #98d8d8,
 );
 /* loop through the array and create a class for each type */
 @each $type in $types {

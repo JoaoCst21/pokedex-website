@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Pokemon from "../Pokemon/Pokemon";
 import { useQuery } from "@tanstack/react-query";
 import "./pokemonContainer.css";
-import fetchPokemon from "../../fetches/fetchPokemon";
+import fetchPokemons from "../../fetches/fetchPokemons";
 import pokemon from "../Pokemon/Pokemon";
 
 const PokemonContainer = () => {
@@ -12,15 +12,13 @@ const PokemonContainer = () => {
   const nextRef = useRef(null);
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20");
 
-  const results = useQuery(["pokemons", url], fetchPokemon);
+  const results = useQuery(["pokemons", url], fetchPokemons);
 
   useEffect(() => {
     if (results.isLoading) return;
     if (!refObserver.current) {
       refObserver.current = new IntersectionObserver(([entry]) => {
-        console.log(entry);
         if (entry.isIntersecting) {
-          console.log("intersecting", next);
           setUrl(() => nextRef.current);
         }
       });
@@ -51,16 +49,11 @@ const PokemonContainer = () => {
             )
           : null}
       </div>
-      <div className="visor" ref={refContainer}>
-        LOADING...
-      </div>
+      <div className="visor" ref={refContainer}></div>
     </>
   );
 
-  if (results.isLoading) {
-    return markup;
-  }
-
+  if (results.isLoading) return markup;
   const [list, next] = results.data;
   pokemonList.current = [...pokemonList.current, ...list];
   nextRef.current = next;

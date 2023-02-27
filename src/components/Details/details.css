@@ -1,0 +1,98 @@
+.container-pokemon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 100vh;
+}
+
+.pokemon {
+  --square-size: 500px;
+  width: var(--square-size);
+  height: calc(var(--square-size) * 1.2);
+
+  border: black solid 1px;
+  background: #DDDDDD;
+}
+
+.stats {
+  --square-size: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: calc(var(--square-size) * 1.5);
+  height: calc(var(--square-size) * 0.5);
+  gap: 10px;
+
+  background-color: #DDDDDD;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  gap: 40px;
+
+  font-size: 1.1rem;
+}
+
+.stat > div {
+  display: flex;
+  justify-content: center;
+}
+
+.stat .stat-name {
+  justify-content: end;
+  width: 20%;
+}
+
+.stat .stat-loader {
+  --stat-value: 0%;
+
+  position: relative;
+
+  width: 60%;
+  height: 15px;
+
+  background-color: #b8b8d0;
+  border-radius: 5px;
+}
+
+.stat .stat-loader:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: var(--stat-value);
+  height: 100%;
+
+  background-color: #6890f0;
+  border-radius: 5px;
+}
+
+.stat .stat-base {
+  justify-content: start;
+  width: 5%;
+}
+
+.info-pokemon {
+  display: flex;
+}
+
+.damage-relation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 70%;
+
+  border: black solid 1px;
+}
+
+.abilities {
+  width: 30%;
+
+  border: black solid 1px;
+}

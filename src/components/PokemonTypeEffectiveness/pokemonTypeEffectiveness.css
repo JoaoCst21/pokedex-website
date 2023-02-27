@@ -1,0 +1,20 @@
+
+
+.damage {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+
+.types {
+  display: flex;
+  width: 100%;
+  align-self: start;
+}
+
+.types > div {
+  width: 15%;
+}
+
