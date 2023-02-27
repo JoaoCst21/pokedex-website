@@ -1,0 +1,41 @@
+/* declare an array variable with every pokemon type*/
+$types: fire, water, grass, electric, normal, poison, ground, flying, fighting, psychic, rock, bug, ghost, dark, dragon, steel, fairy;
+
+/* declare a hashmap with types as keys and colors as values */
+$colors: (
+        fire: #f08030,
+        water: #6890f0,
+        grass: #78c850,
+        electric: #f8d030,
+        normal: #a8a878,
+        poison: #a040a0,
+        ground: #e0c068,
+        flying: #a890f0,
+        fighting: #c03028,
+        psychic: #f85888,
+        rock: #b8a038,
+        bug: #a8b820,
+        ghost: #705898,
+        dark: #705848,
+        dragon: #7038f8,
+        steel: #b8b8d0,
+        fairy: #ee99ac
+);
+/* loop through the array and create a class for each type */
+@each $type in $types {
+  .#{$type} {
+    padding: 5px;
+
+    background-color: map-get($colors, $type);
+    border: 1px solid black;
+  }
+
+  @each $type2 in $types {
+    .#{$type}-#{$type2} {
+      padding: 5px;
+
+      background: linear-gradient(0deg, map-get($colors, $type) 50%, map-get($colors, $type2) 50%);
+      border: 1px solid black;
+    }
+  }
+}

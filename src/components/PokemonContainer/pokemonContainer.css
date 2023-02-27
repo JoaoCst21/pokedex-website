@@ -7,11 +7,17 @@ body {
   padding: 0;
   font-family: 'Golos Text', sans-serif;
   background-color: #f5f5f5;
-  background-image: url("../assets/container_bg.png");
+  background-image: url("../../../assets/container_bg.png");
+}
+
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .pokemon-component {
-  --square-size: 300px;
+  --square-size: 400px;
 
   display: flex;
   flex-direction: column;
@@ -20,6 +26,7 @@ body {
 
   width: var(--square-size);
   height: calc(var(--square-size) + calc(var(--square-size) * 0.2));
+  margin-bottom: 10px;
 
   background-color: #000;
 }
@@ -61,11 +68,18 @@ body {
 .pokemon-information > div {
   display: flex;
   justify-content: space-between;
-  /*align-items: center;*/
+  align-items: center;
+}
 
+.pokemon-abilities {
+  gap: 40px;
 }
 
 .pokemon-name-number {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.visor {
+  border: 10px solid #000;
 }
